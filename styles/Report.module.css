@@ -1,0 +1,9 @@
+.reportDetails {
+  width: 100%;
+  padding: 16px;
+}
+
+.reportDetails a {
+  padding: 0 16px;
+  text-decoration: underline;
+}

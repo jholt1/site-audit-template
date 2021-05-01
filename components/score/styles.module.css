@@ -1,0 +1,27 @@
+.score {
+  display: inline-block;
+  margin: 8px;
+}
+
+.score > span {
+  border-radius: 50px;
+  color: #fff;
+  padding: 8px;
+  font-size: 18px;
+  min-width: 38px;
+  display: block;
+  text-align: center;
+}
+
+.score .green {
+  background: green;
+}
+
+.score .orange {
+  background: #ffa604;
+  color: #222;
+}
+
+.score .red {
+  background: #c70202;
+}
