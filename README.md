@@ -34,8 +34,9 @@ These need to be setup in two places.
 --- | --- | --- | ---
 | AWS_ACCESS_KEY | ***** | GitHub, Vercel | Required |
 | AWS_SECRET_KEY | ***** | GitHub, Vercel | Required |
-| BUCKET_NAME | my-site-bucket-123 | GitHub, Vercel | Required |
+| BUCKET_NAME | random-bucket-name-123 | GitHub, Vercel | Required |
 | SITE_URL | https://example.com | GitHub, Vercel | Required |
+| URL_PREFIX | https://bucket-name.s3.local.amazonaws.com | Vercel | Required |
 | SITE_STARTSWITH | https://www. | GitHub | Required |
 | SKIP_PATHNAMES | /blog/, /corporate/ | GitHub | Optional |
 
