@@ -9,6 +9,10 @@ const date = new Date();
 const d = date.toISOString().split('T')[0];
 const bucket = new AWS.S3();
 
+const logger = (message) => {
+  console.log(message);
+};
+
 const run = async () => {
   let obj = {};
   let scores = [];
@@ -24,7 +28,10 @@ const run = async () => {
     obj = JSON.parse(file.Body);
     scores = JSON.parse(scoresFile.Body);
   } catch (err) {
-    logger(err);
+    if (err) {
+      logger(err);
+      process.exit(1);
+    }
   }
 
   scores.forEach((page) => {
@@ -51,7 +58,7 @@ const run = async () => {
     if (error) {
       console.log(error);
     }
-    console.log('completed')
+    console.log('completed');
   });
 };
 
