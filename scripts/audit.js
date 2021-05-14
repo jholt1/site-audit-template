@@ -310,13 +310,13 @@ const run = async () => {
     if (error) {
       logger(error);
     }
+
+    console.log('completed uploading summaries');
+
+    chromeBrowser.kill();
+
+    process.exit(0);
   });
-
-  console.log('completed uploading summaries');
-
-  chromeBrowser.kill();
-
-  process.exit(0);
 };
 
 process.on('exit', async (code) => {
