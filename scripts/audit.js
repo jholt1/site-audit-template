@@ -224,9 +224,8 @@ const launchChromeAndRunLighthouse = (urls, opts, config = null) => {
         reports += 1;
       }
     }
-    chrome.kill();
 
-    return;
+    return chrome;
   });
 }
 
@@ -280,12 +279,14 @@ const run = async () => {
 
   logger('starting lighthouse reporting...');
 
-  await launchChromeAndRunLighthouse(urls, opts).catch((e) => {
+  const chromeBrowser = await launchChromeAndRunLighthouse(urls, opts).catch((e) => {
     if (e) {
       logger(e);
       process.exit(1);
     }
   });
+
+  console.log('completed lighthouse reporting');
 
   bucket.upload({
     Key: `summary.json`,
@@ -310,6 +311,10 @@ const run = async () => {
       logger(error);
     }
   });
+
+  console.log('completed uploading summaries');
+
+  chromeBrowser.kill();
 
   process.exit(0);
 };
