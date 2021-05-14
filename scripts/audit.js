@@ -281,8 +281,10 @@ const run = async () => {
   logger('starting lighthouse reporting...');
 
   await launchChromeAndRunLighthouse(urls, opts).catch((e) => {
-    logger(e);
-    process.exit(1);
+    if (e) {
+      logger(e);
+      process.exit(1);
+    }
   });
 
   bucket.upload({

@@ -15,7 +15,7 @@ const run = async () => {
 
   try {
     const scoresFile = await bucket
-      .getObject({ Bucket: s3_bucket, Key: 'summary.json' })
+      .getObject({ Bucket: s3_bucket, Key: `summary-${d}.json` })
       .promise();
     const file = await bucket
       .getObject({ Bucket: s3_bucket, Key: 'history.json' })
